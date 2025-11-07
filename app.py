@@ -73,20 +73,22 @@ def load_model(scale=4):
         device = 'cuda' if torch.cuda.is_available() else 'cpu'
         st.info(f"使用设备: {'GPU 🚀' if device == 'cuda' else 'CPU ⚡'}")
 
+        # 直接指定本地模型路径（无需下载链接）
+        os.makedirs("weights", exist_ok=True)
+        model_path = f"weights/RealESRGAN_x{scale}plus.pth"
+
         # 模型路径与下载链接
         model_urls = {
             2: "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.1/RealESRGAN_x2plus.pth",
             4: "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth"
         }
 
-        # 创建weights目录
-        os.makedirs("weights", exist_ok=True)
-        model_path = f"weights/RealESRGAN_x{scale}plus.pth"
-
-        # 下载模型
-        if not download_model_if_needed(model_path, model_urls[scale]):
-            return None
-
+        # 跳过自动下载，直接检查本地模型是否存在
+        if not os.path.exists(model_path):
+            # 下载模型
+            if not download_model_if_needed(model_path, model_urls[scale]):
+                return None
+            
         # 初始化模型架构
         model = RRDBNet(
             num_in_ch=3,
