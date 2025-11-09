@@ -93,14 +93,22 @@ Local URL: http://localhost:8501
 ### 3.2 界面说明
 区域功能描述
 1.标题区:显示工具名称（如 “AI 图像超分工具”）及核心功能说明
+![alt text](image.png)
 
 2.配置区:可选择超分倍数（2 倍 / 4 倍）、是否启用人脸增强（默认关闭）
+![alt text](image-1.png)
 
 3.上传区:点击 “上传图像” 按钮，选择本地图像文件（支持拖放操作）
+![alt text](image-2.png)
+图像上传后会出现“开始超分处理按钮”，点击即会对图像进行超分处理
+![alt text](image-3.png)
 
-4.结果区:左侧显示原始图像，右侧显示超分后图像，支持鼠标滚轮放大预览细节
+4.结果区:左侧显示原始图像，原始图像下方会显示其格式、模式、文件大小、分辨率，右侧显示超分后图像，超分后图像上方显示处理配置以及预计尺寸，下方显示处理前后的文件大小变化，支持鼠标滚轮放大预览细节
+![alt text](image-4.png)
+![alt text](image-5.png)
 
 5.下载区:超分完成后显示 “下载结果” 按钮，点击可将处理后的图像保存到本地（PNG 格式）
+![alt text](image-6.png)
 
 ## 4. 操作流程
 1.在浏览器打开工具界面，在配置区选择超分倍数（推荐 4 倍，细节提升更明显）。
@@ -115,9 +123,11 @@ Local URL: http://localhost:8501
 ### 5.1 模型加载失败
 可能原因：Numpy 版本不兼容、模型文件缺失、依赖未安装完整。
 解决方案：
-重新安装指定版本 Numpy：pip install numpy==1.21.0
-检查 weights 文件夹中是否有对应模型，文件名是否正确（如 RealESRGAN_x4plus.pth）
-重新安装依赖：pip install --force-reinstall realesrgan torch
+1.重新安装指定版本 Numpy（2.0以上版本不兼容）：
+`pip install numpy==1.21.0`
+2.检查 weights 文件夹中是否有对应模型，文件名是否正确（如 RealESRGAN_x4plus.pth），网络连接问题可能会导致下载的模型文件损坏，可以手动下载模型文件，在项目根目录创建weights文件夹（如果没有），将模型文件放入weights文件夹
+3.重新安装依赖：
+`pip install --force-reinstall realesrgan torch`
 
 ### 5.2 运行速度慢
 可能原因：使用 CPU 运行（未启用 GPU 加速）。
