@@ -96,22 +96,22 @@ Local URL: http://localhost:8501
 ### 3.2 界面说明
 区域功能描述
 1.标题区:显示工具名称（如 “AI 图像超分工具”）及核心功能说明
-![alt text](image.png)
+![alt text](sources/image.png)
 
 2.配置区:可选择超分倍数（2 倍 / 4 倍）、是否启用人脸增强（默认关闭）
-![alt text](image-1.png)
+![alt text](sources/image-1.png)
 
 3.上传区:点击 “上传图像” 按钮，选择本地图像文件（支持拖放操作）
-![alt text](image-2.png)
+![alt text](sources/image-2.png)
 图像上传后会出现“开始超分处理按钮”，点击即会对图像进行超分处理
-![alt text](image-3.png)
+![alt text](sources/image-3.png)
 
 4.结果区:左侧显示原始图像，原始图像下方会显示其格式、模式、文件大小、分辨率，右侧显示超分后图像，超分后图像上方显示处理配置以及预计尺寸，下方显示处理前后的文件大小变化，支持鼠标滚轮放大预览细节
-![alt text](image-4.png)
-![alt text](image-5.png)
+![alt text](sources/image-4.png)
+![alt text](sources/image-5.png)
 
 5.下载区:超分完成后显示 “下载结果” 按钮，点击可将处理后的图像保存到本地（PNG 格式）
-![alt text](image-6.png)
+![alt text](sources/image-6.png)
 
 ## 4. 操作流程
 1.在浏览器打开工具界面，在配置区选择超分倍数（推荐 4 倍，细节提升更明显）。
